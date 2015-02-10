@@ -1,0 +1,72 @@
+#header{
+        position: absolute;
+        height: 10%;
+	width: 100%;
+        background: url(../img/cabecera.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #724E36;
+}
+
+ul{
+    position: absolute;
+	list-style-type: none;
+    top:10%;
+}
+
+li{
+    width: 100%;
+	border-bottom: 1px solid  #724E36;
+	padding-top: 0.5em;
+	padding-bottom: 0.7em;
+	margin-bottom: 0;
+	margin-top: 0.5em;
+	clear: both;
+}
+
+#player{
+	display: none;
+	z-index: 4;
+	position: absolute;
+	line-height: 2;
+	top: 85%;
+	height: 15%;
+	width: 100%;
+	color: #eee;
+	background-color: #724E36;
+	text-align: center;
+}
+
+#stop{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 15px;
+	display: inline;
+	background-color: #EEEEEE;
+}
+
+#mute{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 15px;
+	display: inline;
+	background-color: #EEEEEE;
+}
+
+#loading{
+	display: none;
+	z-index: 5;
+	position: absolute;
+	top: 85%;
+	height: 15%;
+	width: 100%;
+	opaciy: 0.4;
+	color: #724e36;
+	text-align:center;
+	font-size:1em;
+	font-weight: normal;
+	line-height: 100%;
+	vertical-align: middle;
+	background: #fff;
+	padding-top: 5px;
+}

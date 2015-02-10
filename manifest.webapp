@@ -1,0 +1,15 @@
+{
+    "launch_path": "/index.html",
+    "installs_allowed_from": [
+        "*"
+    ],
+    "version": "0.0.1",
+    "name": "Radios Libres",
+    "pkgName": "com.radios.libres.name-space",
+    "description": "Escucha las radios libres en el estado español",
+    "developer": {
+        "name": "ELA-dev",
+        "url": "http://github.com/tecnoparanoids"
+    },
+    "icons": {}
+}

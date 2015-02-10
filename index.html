@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+                
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <title>Radios Libres</title>
+    </head>
+    <body>
+
+        
+        <div id="header"></div>
+        
+        <ul id="streaming_list" >
+        
+            <li><div id="contrabanda" value="http://www.porticoluna.org:8000/contrabanda" >Contrabanda FM - 91.4 FM – BCN</div>
+            </li>
+            
+            <li><div id="irola" value="http://giss.tv:8000/irola_irratia.mp3">Irola Irratia - 107.5 FM – Bilbao</div>
+            </li>
+
+
+            <li><div id="almaina" value="http://stream.radioalmaina.org:8041/stream">Radio Almaina - 107.1FM – Granada</div>
+            </li>
+
+            <li><div id="bala"  value="http://giss.tv:8000/RadioBala.mp3">Radio Bala - 106.4 FM – Manresa</div>
+            </li>
+
+            <li><div id="bronka"  value="http://radiobronka.info/escuchar">Radio Bronka -  104.5 FM – BCN</div>
+            </li>
+
+            <li><div id="chabolo"  value="http://radiochabolo.noblezabaturra.org/">Radio Chabolo - 107.5 FM – ZGZ</div>
+            </li>
+            
+            <li><div id="ela" value="http://radio.nodo50.org:8001/radioela.mp3">Radio ELA - 100.0 FM – Madrid</div>
+            </li>
+
+            <li><div id="granja"  value="http://radiolagranja.no-ip.org:8000">Radio La Granja - 102.1 FM – ZGZ</div>
+            </li>
+
+            <li><div id="linea" value="http://giss.tv:8000/rdc.mp3">Radio Linea IV - 103.9 FM – BCN</div>            
+            </li>
+
+            <li><div id="mai" value="http://178.33.25.204:8001/stream">Radio MAI - 102.8 FM – ZGZ</div>
+            </li>
+
+            <li><div id="mutant" value="http://vps66370.ovh.net:8000/mutant.ogg">Radio Mutant - 99.9 FM – Alacant</div>
+            </li>
+            
+            <li><div id="pirineo" value="http://giss.tv:8001/radiopirineo.mp3">Radio Pirineo - 102.8 FM – Huesca</div>
+            </li>
+            
+            <li><div id="qk" value="http://giss.tv:8000/radioqk.mp3">Radio QK -  107.3FM – Oviedo</div>
+            </li>
+
+            <li><div id="rsk" value="http://giss.tv:8000/radiorsk.mp3">Radio RSK - 107.1 FM – BCN</div>
+            </li>
+
+            <li><div id="topo" value="http://giss.tv:8000/radiotopo.mp3">Radio Topo - 101.8 FM – ZGZ</div>
+            </li>
+
+            <li><div id="aktiva" value="http://radioaktivat.no-ip.org:8000/radioaktiva.ogg">RadioAktiva - 107.6 FM – Alcoy</div>
+            </li>
+
+            <li><div id="zintzilik" value="http://airean.net:9001/zintzilik.ogg">Zintzilik irratia - 100 FM -  Orereta</div>
+            </li>
+            
+        </ul>
+        
+        <div id="player">
+	   		<div id="mute" ></div>
+	   		<div id="stop" ></div>
+           	<audio id="audio_player">
+            	<source mozaudiochannel="content" preload="none" src="" type="audio/mpeg" />
+				Tu navegador no es compatible con esta característica.
+           	</audio>
+		</div>
+		
+		<div id="loading" class="inactivelink" >Cargando...</div>
+        
+    </body>
+</html>
