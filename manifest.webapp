@@ -11,5 +11,13 @@
         "name": "ELA-dev",
         "url": "http://github.com/tecnoparanoids"
     },
-    "icons": {}
+    "icons": {
+        "128": "./img/icon-128.png",
+        "512": "./img/icon-512.png"
+    },
+    "permissions": {
+       "audio-channel-content": {
+          "description": "Use the audio channel for the music player"
+       }
+    }
 }

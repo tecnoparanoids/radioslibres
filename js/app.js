@@ -57,8 +57,31 @@ document.onreadystatechange = function () {
 
         var zintzilik = document.getElementById("zintzilik");
         zintzilik.addEventListener("click", function(){playStream(this);}, false);
+            
+        var stop = document.getElementById("stop");
+        stop.addEventListener("click", function(){
+                var audio = document.getElementById('audio_player');
+                audio.pause();
+                audio.src = " ";
+                var player = document.getElementById("player");
+                player.style.display = "none";
+                document.getElementById("radio_list").style.height = "90%";
+        }, false);
+            
+        var mute = document.getElementById("mute");
+            mute.addEventListener("click", function(){
+                      var audio = document.getElementById('audio_player');
+                      audio.muted = !(audio.muted);    
+                      console.log("mute: " + audio.muted);
+                      if(audio.muted)     
+                             mute.style.backgroundImage = "url(../img/mute.png)";
+                      else
+                             mute.style.backgroundImage = "url(../img/volume-up.png)";
+                            
+            }, false);
+
     }
-}
+};
 
 var playStream = function(link){
 
@@ -66,7 +89,7 @@ var playStream = function(link){
     var audio = document.getElementById('audio_player');    
     audio.src = link.getAttribute('value');    
 	
-    console.log("playStream: " + audio.src);
+    console.log("playStream: " + audio.src + " - Radio: " + link.innerHTML);
                 
     var loading = document.getElementById("loading");
     var player = document.getElementById("player");
@@ -81,9 +104,12 @@ var playStream = function(link){
 	audio.addEventListener("playing", function(){
 //		console.log("playing - hide loading: " + playerShown);
 //			if(!playerShown){
-				console.log("Show player!");
+          console.log("Show player! Radio: " + document.getElementById("radio_name"));
+        document.getElementById("radio_name").innerHTML = link.innerHTML;
 				player.style.display = "block";
 				playerShown = true;
+          
+          document.getElementById("radio_list").style.height = "75%";
 //			}
 			loading.style.display = "none";
 		}, true);
@@ -92,6 +118,7 @@ var playStream = function(link){
 	audio.mozAudioChannelType = 'content';
 	audio.play();
 };
+
 
 
 var onError = function(e) {
@@ -112,7 +139,7 @@ var onError = function(e) {
 		   loading.innerHTML = 'Error de decodificación';
 		break;
 		case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-		   loading.innerHTML = 'Error. Asegúrate de tener los datos activados';
+		   loading.innerHTML = 'Error. No se ha podido cargar el audio';
 		break;
 		default:
 		   loading.innerHTML = 'Se ha producido un error';
@@ -121,7 +148,7 @@ var onError = function(e) {
 
 	var audio = document.getElementById('audio_player');
 	audio.pause();
-	
+	document.getElementById("radio_list").style.height = "90%";
 	setTimeout(function(){
 		loading.style.display = "none";
 		player.style.display = "none";

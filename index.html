@@ -41,7 +41,8 @@
         
         <div id="header"></div>
         
-        <ul id="streaming_list" >
+        <div id="radio_list" >
+            <ul id="streaming_list" >
         
             <li><div id="contrabanda" value="http://www.porticoluna.org:8000/contrabanda" >Contrabanda FM - 91.4 FM – BCN</div>
             </li>
@@ -62,7 +63,7 @@
             <li><div id="chabolo"  value="http://radiochabolo.noblezabaturra.org/">Radio Chabolo - 107.5 FM – ZGZ</div>
             </li>
             
-            <li><div id="ela" value="http://radio.nodo50.org:8001/radioela.mp3">Radio ELA - 100.0 FM – Madrid</div>
+            <li><div id="ela" value="http://radio.nodo50.org:8001/radioela.mp3">Radio ELA - Madrid</div>
             </li>
 
             <li><div id="granja"  value="http://radiolagranja.no-ip.org:8000">Radio La Granja - 102.1 FM – ZGZ</div>
@@ -95,14 +96,16 @@
             <li><div id="zintzilik" value="http://airean.net:9001/zintzilik.ogg">Zintzilik irratia - 100 FM -  Orereta</div>
             </li>
             
-        </ul>
+           </ul>
+        </div>
         
-        <div id="player">
+     <div id="player">
+         <div id="radio_name"></div>
 	   		<div id="mute" ></div>
 	   		<div id="stop" ></div>
            	<audio id="audio_player">
             	<source mozaudiochannel="content" preload="none" src="" type="audio/mpeg" />
-				Tu navegador no es compatible con esta característica.
+		      		Tu navegador no es compatible con esta característica.
            	</audio>
 		</div>
 		
