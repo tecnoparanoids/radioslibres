@@ -7,12 +7,13 @@
     <author email="tecnoparanoids@radioela.org" href="https://github.com/tecnoparanoids/radioslibres">
         ELA-dev Team
     </author>
-  <icon src="www/img/icon-72.png" width="72" height="72" />
-  <icon src="www/img/icon-48.png" width="48" height="48" />
-  <icon src="www/img/icon-36.png" width="36" height="36" />72	
+  <icon src="img/icon-72.png" width="72" height="72" />
+  <icon src="img/icon-48.png" width="48" height="48" />
+  <icon src="img/icon-36.png" width="36" height="36" />
+	<allow-navigation href="http://*/*" />
     <preference name="permissions" value="none" />
-    <preference name="phonegap-version" value="3.5.0" />
-    <preference name="orientation" value="default" />
+    <preference name="phonegap-version" value="5.4.1" />
+    <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
@@ -24,11 +25,10 @@
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
-    <access origin="*" />
 </widget>

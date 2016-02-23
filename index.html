@@ -22,14 +22,15 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <meta name="msapplication-tap-highlight" content="no" />
                 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -38,29 +39,36 @@
     </head>
     <body>
 
+<!--		<div id="deviceready" class="blink">-->
+<!--			<p class="event listening">Connecting to Device</p>-->
+<!--			<p class="event received">Device is ready</p>-->
+<!--		</div>-->
         
         <div id="header"></div>
         
         <div id="radio_list" >
             <ul id="streaming_list" >
         
-            <li><div id="contrabanda" value="http://www.porticoluna.org:8000/contrabanda" >Contrabanda FM - 91.4 FM – BCN</div>
+            <li><div id="agora" value="http://tesla.todoexitos.com:9370" >Agora Sol Radio – Madrid</div>
+            </li>
+            
+            <li><div id="arraio" value="http://www.arraio.net:9001/irratia.ogg" >Arraio Irratia - 99.3 FM – Zarautz</div>
+            </li>
+                                
+            <li><div id="contrabanda" value="http://www.contrabanda.org:8000/contrabanda" >Contrabanda FM - 91.4 FM – BCN</div>
             </li>
             
             <li><div id="irola" value="http://giss.tv:8000/irola_irratia.mp3">Irola Irratia - 107.5 FM – Bilbao</div>
             </li>
 
 
-            <li><div id="almaina" value="http://stream.radioalmaina.org:8041/stream">Radio Almaina - 107.1FM – Granada</div>
+            <li><div id="almaina" value="http://192.99.35.215:5076/stream.mp3">Radio Almaina - 107.1FM – Granada</div>
             </li>
 
             <li><div id="bala"  value="http://giss.tv:8000/RadioBala.mp3">Radio Bala - 106.4 FM – Manresa</div>
             </li>
 
-            <li><div id="bronka"  value="http://radiobronka.info/escuchar">Radio Bronka -  104.5 FM – BCN</div>
-            </li>
-
-            <li><div id="chabolo"  value="http://radiochabolo.noblezabaturra.org/">Radio Chabolo - 107.5 FM – ZGZ</div>
+            <li><div id="bronka"  value="http://stream.nonfqdn.net:8000/rbronka.ogg">Radio Bronka -  104.5 FM – BCN</div>
             </li>
             
             <li><div id="ela" value="http://radio.nodo50.org:8001/radioela.mp3">Radio ELA - Madrid</div>
@@ -69,31 +77,25 @@
             <li><div id="granja"  value="http://radiolagranja.no-ip.org:8000">Radio La Granja - 102.1 FM – ZGZ</div>
             </li>
 
-            <li><div id="linea" value="http://giss.tv:8000/rdc.mp3">Radio Linea IV - 103.9 FM – BCN</div>            
-            </li>
-
             <li><div id="mai" value="http://178.33.25.204:8001/stream">Radio MAI - 102.8 FM – ZGZ</div>
             </li>
 
             <li><div id="mutant" value="http://vps66370.ovh.net:8000/mutant.ogg">Radio Mutant - 99.9 FM – Alacant</div>
             </li>
             
-            <li><div id="pirineo" value="http://giss.tv:8001/radiopirineo.mp3">Radio Pirineo - 102.8 FM – Huesca</div>
-            </li>
-            
             <li><div id="qk" value="http://giss.tv:8000/radioqk.mp3">Radio QK -  107.3FM – Oviedo</div>
             </li>
 
-            <li><div id="rsk" value="http://giss.tv:8000/radiorsk.mp3">Radio RSK - 107.1 FM – BCN</div>
+            <li><div id="rsk" value="http://stream.nonfqdn.net:8000/rsk.mp3">Radio RSK - 107.1 FM – BCN</div>
             </li>
 
-            <li><div id="topo" value="http://giss.tv:8000/radiotopo.mp3">Radio Topo - 101.8 FM – ZGZ</div>
+            <li><div id="topo" value="http://192.99.35.215:5076/stream.mp3">Radio Topo - 101.8 FM – ZGZ</div>
             </li>
 
-            <li><div id="aktiva" value="http://radioaktivat.no-ip.org:8000/radioaktiva.ogg">RadioAktiva - 107.6 FM – Alcoy</div>
+            <li><div id="aktiva" value="http://vps66370.ovh.net:8000/aktiva.ogg" >RadioAktiva - 107.6 FM – Alcoy</div>
             </li>
 
-            <li><div id="zintzilik" value="http://airean.net:9001/zintzilik.ogg">Zintzilik irratia - 100 FM -  Orereta</div>
+            <li><div id="zintzilik" value="http://irratia.zintzilik.net/zintzilik.ogg">Zintzilik irratia - 100 FM -  Orereta</div>
             </li>
             
            </ul>
@@ -101,7 +103,7 @@
         
      <div id="player">
          <div id="radio_name"></div>
-	   		<div id="mute" ></div>
+	   		<div id="mute" class="unmuted" ></div>
 	   		<div id="stop" ></div>
            	<audio id="audio_player">
             	<source mozaudiochannel="content" preload="none" src="" type="audio/mpeg" />

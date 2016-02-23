@@ -77,10 +77,16 @@ li{
 	height: 40%;
 	left: 85%;
 	top: 25%;
-	background-image: url("../img/volume-up.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
 
+.muted{
+	background-image: url("../img/muted.png");
+}
+
+.unmuted{
+	background-image: url("../img/mute.png");
 }
 
 #loading{
