@@ -1,23 +1,4 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
- 
-var streamLoading = false;
+var audioInit = false;
  	
 var app = {
     // Application Constructor
@@ -55,6 +36,9 @@ var app = {
 		    var almaina = document.getElementById("almaina");
 		    almaina.addEventListener("click", function(){playStream(this);}, false);
 
+		    var bala = document.getElementById("bala");
+		    bala.addEventListener("click", function(){playStream(this);}, false);
+
 		    var bronka = document.getElementById("bronka");
 		    bronka.addEventListener("click", function(){playStream(this);}, false);
 
@@ -87,7 +71,6 @@ var app = {
 		        
 		    var stop = document.getElementById("stop");
 		    stop.addEventListener("click", function(){
-		    streamLoading = false;
 		            var audio = document.getElementById('audio_player');
 		            audio.pause();
 		            audio.src = " ";
@@ -106,18 +89,9 @@ var app = {
 		                  else
 		                         mute.className = "unmuted";
 		        }, false);
-        
-//        configureEvents();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-//        var parentElement = document.getElementById(id);
-//        var listeningElement = parentElement.querySelector('.listening');
-//        var receivedElement = parentElement.querySelector('.received');
-
-//        listeningElement.setAttribute('style', 'display:none;');
-//        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     },
       
@@ -126,14 +100,9 @@ var app = {
 
 var playStream = function(link){
 		
-	streamLoading = false;
-
 	var audio = document.getElementById('audio_player');
 	audio.pause();
 	audio.src = " ";
-	console.log("playStream - Radio: " + link.innerHTML);
-	
-    
     audio.src = link.getAttribute('value');    
 	
     console.log("playStream: " + audio.src + " - Radio: " + link.innerHTML);
@@ -144,41 +113,56 @@ var playStream = function(link){
 	// Mostramos mensaje de "Cargando..."		
 	loading.innerHTML = 'Cargando audio...';
 	loading.style.display = "block";
+	
+	document.getElementById("radio_name").innerHTML = link.innerHTML;
 
-	audio.addEventListener("playing", function(){
-        console.log("addEventListener.playing - Radio: " + document.getElementById("radio_name"));
-        streamLoading = true;
-		document.getElementById("radio_name").innerHTML = link.innerHTML;
-		player.style.display = "block";
-		playerShown = true;
-			  
-		document.getElementById("radio_list").style.height = "75%";
-
-		loading.style.display = "none";
-		}, true);
-	
-	audio.addEventListener("durationchange", function(){
-		console.log("addEventListener.durationchange  streamLoading = " + streamLoading);
-//		if(streamLoading == true){
-//			document.getElementById("radio_name").innerHTML = link.innerHTML;
-//			player.style.display = "block";
-//			playerShown = true;
-//			  
-//			document.getElementById("radio_list").style.height = "75%";
-
-//			loading.style.display = "none";
-//		}
-	});
-	
-//	audio.addEventListener("progress", function(){
-//	    console.log("addEventListener.progress - Radio: " + document.getElementById("radio_name"));
-//		}, true);
-	
-	
-	
 	audio.addEventListener('error', onError, true);
-	audio.mozAudioChannelType = 'content';
 	audio.play();
+	
+	if(!audioInit){
+		audio.addEventListener("playing" , function(){
+		
+		// Mostramos el player en onplaying, pero se muestra antes de empezar a reproducir
+		// Se están disparando todos los eventos a la vez
+		    console.log("addEventListener.onplaying: " + audio.src);
+		    audioInit = true;
+			player.style.display = "block";
+			playerShown = true;
+				  
+			document.getElementById("radio_list").style.height = "75%";
+
+			loading.style.display = "none";
+		});
+		
+		// En orden de disparo
+//		audio.onplay = function(){
+//		    console.log("addEventListener.play");
+//		};
+//		audio.ondurationchange = function(){
+//			console.log("addEventListener.durationchange");		
+//		};
+//		audio.oncanplay = function(){
+//		    console.log("addEventListener.canplay");
+//		};		
+//		audio.oncanplaythrough = function(){
+//		    console.log("addEventListener.canplaythrough");
+//		};
+
+//		audio.ontimeupdate = function(){
+//		    console.log("addEventListener.timeupdate");
+//		};
+//		 //Estos no se disparan 
+//		audio.onratechange = function(){
+//			console.log("addEventListener.ratechange");
+//		};
+//		audio.onprogress = function(){
+//		    console.log("addEventListener.progress");
+//		};
+
+//		audio.onvolumechange = function(){
+//			console.log("addEventListener.onvolumechange");		
+//		};		
+	}
 };
 
 
@@ -187,6 +171,8 @@ var onError = function(e) {
 
 	console.log("ERROR AL REPRODUCIR: " + e.target.error.code + " - Audio: " + e.target.src);
 
+    audioInit = true;
+		    
     var loading = document.getElementById("loading");
     var player = document.getElementById("player");
     
@@ -207,13 +193,15 @@ var onError = function(e) {
 		   loading.innerHTML = 'Se ha producido un error';
 		break;
 	}
-	streamLoading = false;
+
+	loading.style.display = "block";
+	player.style.display = "none";
+		
 	var audio = document.getElementById('audio_player');
 	audio.pause();
 	document.getElementById("radio_list").style.height = "90%";
 	setTimeout(function(){
 		loading.style.display = "none";
-		player.style.display = "none";
-    },2000); 
+    },3000); 
 };
 
