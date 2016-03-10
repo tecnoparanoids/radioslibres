@@ -116,9 +116,7 @@ var playStream = function(link){
 	
 	document.getElementById("radio_name").innerHTML = link.innerHTML;
 
-	audio.addEventListener('error', onError, true);
-	audio.play();
-	
+
 	if(!audioInit){
 		audio.addEventListener("playing" , function(){
 		
@@ -163,6 +161,9 @@ var playStream = function(link){
 //			console.log("addEventListener.onvolumechange");		
 //		};		
 	}
+	audio.addEventListener('error', onError, true);
+	audio.play();
+	
 };
 
 
@@ -194,7 +195,6 @@ var onError = function(e) {
 		break;
 	}
 
-	loading.style.display = "block";
 	player.style.display = "none";
 		
 	var audio = document.getElementById('audio_player');
